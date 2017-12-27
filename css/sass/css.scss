@@ -1,0 +1,56 @@
+
+.banner{
+	width: 1200px;
+	margin: 0 auto;
+	height: 300px;
+	overflow: hidden;
+	position: relative;
+}
+.opening{
+
+}
+.closing{
+	height: 40px;
+}
+.opened{
+
+}
+.closed{
+	height: 40px;
+}
+.closed img{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+.btn{
+	font-size: 13px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	padding: 2px 2px 2px 8px;
+	color: #a3a3a3;
+	background-color: rgba(0,0,0,.8);
+	border-radius: 3px 0 0 0 ;
+	cursor: pointer;
+}
+.btn:after {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin: 2px;
+    border-style: solid;
+    border-width: 0 3px 3px;
+    border-color: transparent transparent #a3a3a3;
+}
+.btn:hover{
+	transition:.2s;
+	color: white;
+}
+img{
+	vertical-align: middle;
+}
+.transition{
+	transition: .75s;
+}

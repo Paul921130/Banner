@@ -1,0 +1,66 @@
+/* line 2, ../sass/css.scss */
+.banner {
+  width: 1200px;
+  margin: 0 auto;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* line 12, ../sass/css.scss */
+.closing {
+  height: 40px;
+}
+
+/* line 18, ../sass/css.scss */
+.closed {
+  height: 40px;
+}
+
+/* line 21, ../sass/css.scss */
+.closed img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+/* line 26, ../sass/css.scss */
+.btn {
+  font-size: 13px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 2px 2px 2px 8px;
+  color: #a3a3a3;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 3px 0 0 0;
+  cursor: pointer;
+}
+
+/* line 37, ../sass/css.scss */
+.btn:after {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin: 2px;
+  border-style: solid;
+  border-width: 0 3px 3px;
+  border-color: transparent transparent #a3a3a3;
+}
+
+/* line 47, ../sass/css.scss */
+.btn:hover {
+  transition: .2s;
+  color: white;
+}
+
+/* line 51, ../sass/css.scss */
+img {
+  vertical-align: middle;
+}
+
+/* line 54, ../sass/css.scss */
+.transition {
+  transition: .75s;
+}
