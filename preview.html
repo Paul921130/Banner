@@ -67,8 +67,14 @@
 <script>
 	$(".btn").click(function() {
 		  $(".banner").toggleClass('closing');
-		 
+		  var bannerHeight = $(".banner").css("height");
+			console.log(bannerHeight);
  	});
+</script>
+<script>
+	$(".banner").bind(function(){
+		console.log($(this).css.height);
+	});
 </script>
 </body>
 </html>
