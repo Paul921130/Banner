@@ -76,26 +76,7 @@
 </script>
 
 
-<script>
 
-
-	var intElemOffsetHeight = document.getElementById('bannerH').offsetHeight;//取得banner的高度
-	// console.log('Height:'+intElemOffsetHeight +'px');
-	
-	var openedText ='收合';
-	var closedText ='展開';
-
-	if (intElemOffsetHeight===40) {
-   	document.getElementById("Btnch").innerHTML=closedText
-	} else { 
-   	document.getElementById("Btnch").innerHTML=openedText
-	}
-
-	
-	// document.getElementById("Btnch").innerHTML=closedText;
-	//按鈕狀態文字
-
-</script>
 
 
 <script>
@@ -110,6 +91,22 @@
 	$(".banner").bind(function(){
 		console.log($(this).css.height);
 	});
+</script>
+
+<script>
+	var openedText ='收合';
+	var closedText ='展開';
+
+	if ($(".banner").css.height===40) {
+   	document.getElementById("Btnch").innerHTML=closedText
+	} else { 
+   	document.getElementById("Btnch").innerHTML=openedText
+	}
+	// var intElemOffsetHeight = document.getElementById('bannerH').offsetHeight;//取得banner的高度
+	// console.log('Height:'+intElemOffsetHeight +'px');
+	// document.getElementById("Btnch").innerHTML=closedText;
+	//按鈕狀態文字
+
 </script>
 
 
