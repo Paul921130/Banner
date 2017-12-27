@@ -23,11 +23,10 @@
 		</div>
 	</div>
 </div>
-<div class="banner transition opened">
+<div class="banner transition opened" id="bannerH">
 	<a class="wrap" href="#">
 		<img class="img" src="./imgs/1200x380.png" title="輸入廣告促銷說明文字" alt="輸入廣告促銷說明文字">
 	</a>
-	<div class="btn">收合</div>
 </div>
 <script>
 
@@ -69,6 +68,24 @@
 		});
 
 </script>
+
+
+<script>
+	var BtnHt = '<div class="btn" id="Btnch">'+'</div>';
+	$('.banner').append(BtnHt);
+</script>
+
+
+<script>
+	var intElemOffsetHeight = document.getElementById('bannerH').offsetHeight;//取得banner的高度
+	// console.log('Height:'+intElemOffsetHeight +'px');
+	var openedText ='收合';
+	var closedText ='展開';
+	document.getElementById("Btnch").innerHTML=closedText;
+	//按鈕狀態文字
+</script>
+
+
 <script>
 	$(".btn").click(function() {
 		  $(".banner").toggleClass('closing');
@@ -76,10 +93,13 @@
 			console.log(bannerHeight);
  	});
 </script>
+
 <script>
 	$(".banner").bind(function(){
 		console.log($(this).css.height);
 	});
 </script>
+
+
 </body>
 </html>
