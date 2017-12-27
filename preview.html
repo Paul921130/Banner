@@ -51,6 +51,7 @@
 			// 是否要有transition效果
 			transition: true,
 			// 當有transition時，要執行的callback function
+			// 記得要用setInterval
 			whenTransition: function() {
 				console.log('whenTransition');
 			}
@@ -66,8 +67,8 @@
 <script>
 	$(".btn").click(function() {
 		  $(".banner").toggleClass('closing');
- }
-);
+		 
+ 	});
 </script>
 </body>
 </html>
