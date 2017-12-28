@@ -7,8 +7,8 @@
 		this.ele = ele;
 		this.$ele = $(ele);
 		this.option = options;
-		this.satePoint =['opened','opening','closing','closed'];
-					//opened:0,opening:1,closing:2,closed:3
+		this.satePoint =['opened','closing','closed','opening'];
+					//opened:0,closing:1,closed:2,opening:3
 		this.sate =0;//opened
 		this.$btn =$('<div class="btn" id="Btnch">'+'收合'+'</div>')
 	};
