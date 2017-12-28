@@ -12,7 +12,8 @@
 		this.sate =0;//opened
 		this.btn =$('<div class="btn" id="Btnch">'+this.button.closeText+'</div>')
 	};
-
+	
+	//下面是DEFAULTS物件
 	Module.DEFAULTS = {
 			openAtStart: true,
 			autoToggle: true,
