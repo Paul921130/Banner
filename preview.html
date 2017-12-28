@@ -30,7 +30,7 @@
 </div>
 
 <script>
-	$(function() {
+	
 		$('.banner').banner({
 			// 設定一開始是否為開或合
 			openAtStart: true, // [boolean] true | false
@@ -53,9 +53,9 @@
 			transition: true,
 			// 當有transition時，要執行的callback function
 			// 記得要用setInterval
-			whenTransition: function() {
-				console.log('whenTransition');
-				}
+			// whenTransition: function() {
+			// 	console.log('whenTransition');
+			// 	}
 			});
 		// $('.banner').banner('toggle');
 
@@ -68,7 +68,7 @@
 			// 	 var bannerHeight = $(".banner").css("height");
 			// 	console.log(bannerHeight);
 		 // 	});
-		});
+		
 
 </script>
 
