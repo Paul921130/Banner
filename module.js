@@ -9,7 +9,7 @@
 		this.option = options;
 		this.satePoint =['opened','closing','closed','opening'];
 					//opened:0,closing:1,closed:2,opening:3
-		this.sate =0;//opened
+		this.sate = 0;//opened
 		this.$btn =$('<div class="btn" id="Btnch">'+'收合'+'</div>')
 	};
 	
@@ -25,9 +25,9 @@
 			},
 			
 			class: {
-			closed: 'closed', // [string]
+			opened: 'opened',// [string]
 			closing: 'closing', // [string]
-			opened: 'opened', // [string]
+			closed: 'closed', // [string]
 			opening: 'opening' // [string]
 			},
 			
@@ -49,18 +49,23 @@
 
 	Module.prototype.init = function () {
 		this.$ele.append(this.$btn);
-
+		var a =this.satePoint[1];
+		document.getElementById("bannerH").className += " closed";
+		console.log(a);
 		console.log('Finally!!');
 	};//首次執行的function!!!!全局function!!!等等要注意!!!!
 	//第一次執行的呼叫function
 
+	Module.prototype.nowSate = function(){
+		return this.option.class[this.satePoint[sate]];
+	}
+
 	Module.prototype.goSate = function () {
 		this.sate++;
 		if(this.sate >this.satePoint.lenght-1){
-			return this.sate;
-		}else{
-			
+			this.sate =0;
 		}
+		return this.sate;
 	};
 
 
