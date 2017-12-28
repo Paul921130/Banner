@@ -54,7 +54,14 @@
 	};//首次執行的function!!!!全局function!!!等等要注意!!!!
 	//第一次執行的呼叫function
 
-	
+	Module.prototype.goSate = function () {
+		this.sate++;
+		if(this.sate >this.satePoint.lenght-1){
+			return this.sate;
+		}else{
+			
+		}
+	};
 
 
 
