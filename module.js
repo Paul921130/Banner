@@ -9,33 +9,33 @@
 		this.option = options;
 		this.satePoint =['opened','opening','closing','closed'];
 					//opened:0,opening:1,closing:2,closed:3
+		this.sate =0;//opened
+		this.btn =$('<div class="btn" id="Btnch">'+this.button.closeText+'</div>')
 	};
 
 	Module.DEFAULTS = {
-		openAtStart: true,
-		autoToggle: true,
-		
-		button: {
-		closeText: '收合', // [string]
-		openText: '展開', // [string]
-		class: 'btn' // [string]
-		},
-		
-		class: {
-		closed: 'closed', // [string]
-		closing: 'closing', // [string]
-		opened: 'opened', // [string]
-		opening: 'opening' // [string]
-		},
-		
-		transition: true,
-		
-		class: {
-			main: 'banner',
-			wrap: {
-				icon: 'iwrap',
-				content: 'ctn',
-				close: 'close'
+			openAtStart: true,
+			autoToggle: true,
+			
+			button: {
+			closeText: '收合', // [string]
+			openText: '展開', // [string]
+			class: 'btn' // [string]
+			},
+			
+			class: {
+			closed: 'closed', // [string]
+			closing: 'closing', // [string]
+			opened: 'opened', // [string]
+			opening: 'opening' // [string]
+			},
+			
+			transition: true,
+
+			whenTransition: function() {
+				console.log('whenTransition');
+			}
+
 			}
 		},
 	};
@@ -44,6 +44,38 @@
 		
 	};
 
+	Module.prototype.openAtStart = function () {
+
+
+	};
+
+	Module.prototype.autoToggle = function () {
+
+
+	};
+
+	Module.prototype.button = function () {
+
+
+	};
+
+	Module.prototype.class = function () {
+
+
+	};
+
+	Module.prototype.transition = function () {
+
+
+	};
+
+	Module.prototype.whenTransition = function () {
+		console.log('whenTransition');
+	};
+	Module.prototype.banner = function () {
+
+
+	};
 
 	Module.prototype.togglebanner = function ( id ) {
 
