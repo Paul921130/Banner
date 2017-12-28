@@ -7,10 +7,10 @@
 		this.ele = ele;
 		this.$ele = $(ele);
 		this.option = options;
-		this.satePoint =['opened','opening','closing','closed'];
-					//opened:0,opening:1,closing:2,closed:3
-		this.sate =0;//opened
-		this.btn =$('<div class="btn" id="Btnch"></div>')
+		this.satePoint =['opened','closing','closed','opening'];
+					//opened:0,closing:1,closed:2,opening:3
+		this.sate = 0 ;//opened
+		this.$btn =$('<div class="btn" id="Btnch">'+'收合'+'</div>')
 	};
 	
 	//下面是DEFAULTS物件
@@ -25,9 +25,9 @@
 			},
 			
 			class: {
-			closed: 'closed', // [string]
+			opened: 'opened',// [string]
 			closing: 'closing', // [string]
-			opened: 'opened', // [string]
+			closed: 'closed', // [string]
 			opening: 'opening' // [string]
 			},
 			
@@ -45,19 +45,29 @@
 	// 	console.log(this.option.class[this.satePoint[sate]]);
 	// };
 
-	Module.prototype.func1 = function (option) {
-		var a = 1;
-		var b = 2;
-		var f = 4;
-		console.log('this is a prototype function1!!!');
-		console.log(option);//顯示對方的function內容
-		option(a, b, f );
-	};
 	
 
 	Module.prototype.init = function () {
+		this.$ele.append(this.$btn);
+		 this.$ele.addClass(this.nowSate(this.sate));
+		
+		var a =this.sate;
+		console.log(a);
 		console.log('Finally!!');
 	};//首次執行的function!!!!全局function!!!等等要注意!!!!
+	//第一次執行的呼叫function
+
+	Module.prototype.goSate = function () {
+		this.sate++;
+		if(this.sate >this.satePoint.lenght-1){
+			this.sate =0;
+		}
+		return this.sate;
+	};
+	
+	Module.prototype.nowSate = function(sate){
+		return this.option.class[this.satePoint[sate]];
+	}
 
 	
 
@@ -84,7 +94,7 @@
 				opts = $.extend( {}, Module.DEFAULTS, ( typeof method === 'object' && method ), ( typeof options === 'object' && options ) );
 				module = new Module(this, opts);
 				$this.data( ModuleName, module );
-				 module.init();
+				module.init();
 			}
 		});
 	};

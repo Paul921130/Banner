@@ -2,7 +2,7 @@
 .banner {
   width: 1200px;
   margin: 0 auto;
-  height: 300px;
+/*  height: 300px;*/
   overflow: hidden;
   position: relative;
 }
@@ -16,7 +16,12 @@
 .closed {
   height: 40px;
 }
-
+.opened{
+  height: 300px;
+}
+.opening{
+  height: 300px;
+}
 /* line 21, ../sass/css.scss */
 .closed img {
   position: absolute;
