@@ -10,9 +10,10 @@
 		this.satePoint =['opened','opening','closing','closed'];
 					//opened:0,opening:1,closing:2,closed:3
 		this.sate =0;//opened
-		this.btn =$('<div class="btn" id="Btnch">'+this.button.closeText+'</div>')
+		this.btn =$('<div class="btn" id="Btnch"></div>')
 	};
-
+	
+	//下面是DEFAULTS物件
 	Module.DEFAULTS = {
 			openAtStart: true,
 			autoToggle: true,
@@ -35,80 +36,57 @@
 			whenTransition: function() {
 				console.log('whenTransition');
 			}
+		};
+	
 
-			}
-		},
+	// Module.prototype.nowSate =function(sate){
+	// 	console.log(222);
+	// 	return this.option.class[this.satePoint[sate]];
+	// 	console.log(this.option.class[this.satePoint[sate]]);
+	// };
+
+	Module.prototype.func1 = function (option) {
+		var a = 1;
+		var b = 2;
+		var f = 4;
+		console.log('this is a prototype function1!!!');
+		console.log(option);//顯示對方的function內容
+		option(a, b, f );
 	};
+	
 
 	Module.prototype.init = function () {
-		
+		console.log('Finally!!');
+	};//首次執行的function!!!!全局function!!!等等要注意!!!!
+
+	
+
+
+
+
+
+
+
+	$.fn[ModuleName] = function ( method, options ) {
+		return this.each(function(){
+			var $this = $(this);
+			var module = $this.data( ModuleName );
+			var opts = null;
+			if ( !!module ) {
+				if ( typeof method === 'string' &&  typeof options === 'undefined' ) {
+					module[method]();
+				} else if ( typeof method === 'string' && typeof options === 'object' || typeof options === 'string' ) {
+					module[method](options);
+				} else {
+					console.log('unsupported options!');
+				}
+			} else {
+				opts = $.extend( {}, Module.DEFAULTS, ( typeof method === 'object' && method ), ( typeof options === 'object' && options ) );
+				module = new Module(this, opts);
+				$this.data( ModuleName, module );
+				 module.init();
+			}
+		});
 	};
-
-	Module.prototype.openAtStart = function () {
-
-
-	};
-
-	Module.prototype.autoToggle = function () {
-
-
-	};
-
-	Module.prototype.button = function () {
-
-
-	};
-
-	Module.prototype.class = function () {
-
-
-	};
-
-	Module.prototype.transition = function () {
-
-
-	};
-
-	Module.prototype.whenTransition = function () {
-		console.log('whenTransition');
-	};
-	Module.prototype.banner = function () {
-
-
-	};
-
-	Module.prototype.togglebanner = function ( id ) {
-
-
-	};
-
-
-
-
-
-
-
-
-	// $.fn[ModuleName] = function ( method, options ) {
-	// 	return this.each(function(){
-	// 		var $this = $(this);
-	// 		var module = $this.data( ModuleName );
-	// 		var opts = null;
-	// 		if ( !!module ) {
-	// 			if ( typeof method === 'string' &&  typeof options === 'undefined' ) {
-	// 				module[method]();
-	// 			} else if ( typeof method === 'string' && typeof options === 'object' || typeof options === 'string' ) {
-	// 				module[method](options);
-	// 			} else {
-	// 				console.log('unsupported options!');
-	// 			}
-	// 		} else {
-	// 			opts = $.extend( {}, Module.DEFAULTS, ( typeof method === 'object' && method ), ( typeof options === 'object' && options ) );
-	// 			module = new Module(this, opts);
-	// 			$this.data( ModuleName, module );
-	// 			module.init();
-	// 		}
-	// 	});
-	// };
 
 })(jQuery);
