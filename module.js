@@ -41,6 +41,10 @@
 		},
 	};
 
+	Module.prototype.nowSate =function(sate){
+		return this.option.class[this.satePoint[sate]];
+	}
+
 	Module.prototype.init = function () {
 		
 	};
@@ -50,10 +54,7 @@
 
 	};
 
-	Module.prototype.autoToggle = function () {
-
-
-	};
+	
 
 	Module.prototype.button = function () {
 
@@ -70,9 +71,7 @@
 
 	};
 
-	Module.prototype.whenTransition = function () {
-		console.log('whenTransition');
-	};
+
 	Module.prototype.banner = function () {
 
 
