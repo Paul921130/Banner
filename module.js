@@ -9,6 +9,8 @@
 		this.option = options;
 		this.satePoint =['opened','opening','closing','closed'];
 					//opened:0,opening:1,closing:2,closed:3
+		this.sate =0;//opened
+		this.btn =$('<div class="btn" id="Btnch">'+this.button.closeText+'</div>')
 	};
 
 	Module.DEFAULTS = {
@@ -29,11 +31,11 @@
 			},
 			
 			transition: true,
-			
-			class: {
-				main: 'banner',
-				wrap: {
-				
+
+			whenTransition: function() {
+				console.log('whenTransition');
+			}
+
 			}
 		},
 	};
