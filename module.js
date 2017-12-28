@@ -50,7 +50,8 @@
 	Module.prototype.init = function () {
 		this.$ele.append(this.$btn);
 		var a =this.satePoint[1];
-		document.getElementById("bannerH").className += " closed";
+		// document.getElementById("bannerH").className += " closed";
+		document.getElementById("bannerH").className += " opened";
 		console.log(a);
 		console.log('Finally!!');
 	};//首次執行的function!!!!全局function!!!等等要注意!!!!
