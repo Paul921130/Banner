@@ -10,7 +10,7 @@
 		this.satePoint =['opened','opening','closing','closed'];
 					//opened:0,opening:1,closing:2,closed:3
 		this.sate =0;//opened
-		this.btn =$('<div class="btn" id="Btnch">'+this.button.closeText+'</div>')
+		this.btn =$('<div class="btn" id="Btnch"></div>')
 	};
 	
 	//下面是DEFAULTS物件
@@ -36,10 +36,8 @@
 			whenTransition: function() {
 				console.log('whenTransition');
 			}
-
-			}
-		},
-	};
+		};
+	
 
 	Module.prototype.nowSate =function(sate){
 		return this.option.class[this.satePoint[sate]];
@@ -49,39 +47,7 @@
 		
 	};
 
-	Module.prototype.openAtStart = function () {
-
-
-	};
-
 	
-
-	Module.prototype.button = function () {
-
-
-	};
-
-	Module.prototype.class = function () {
-
-
-	};
-
-	Module.prototype.transition = function () {
-
-
-	};
-
-
-	Module.prototype.banner = function () {
-
-
-	};
-
-	Module.prototype.togglebanner = function ( id ) {
-
-
-	};
-
 
 
 
