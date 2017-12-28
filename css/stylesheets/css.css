@@ -43,7 +43,7 @@
 }
 
 /* line 37, ../sass/css.scss */
-.btn:after {
+.opened>.btn:after, .closing>.btn:after {
   content: "";
   display: inline-block;
   width: 0;
@@ -53,7 +53,16 @@
   border-width: 0 3px 3px;
   border-color: transparent transparent #a3a3a3;
 }
-
+.closed>.btn:after, .opening>.btn:after {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin: 2px;
+  border-style: solid;
+  border-width:3px 3px 0;
+  border-color:#a3a3a3 transparent transparent;
+}
 /* line 47, ../sass/css.scss */
 .btn:hover {
   transition: .2s;

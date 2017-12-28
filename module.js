@@ -10,7 +10,7 @@
 		this.satePoint =['opened','closing','closed','opening'];
 					//opened:0,closing:1,closed:2,opening:3
 		this.sate = 0 ;//opened
-		this.$btn =$('<div class="btn" id="Btnch">'+'收合'+'</div>')
+		this.$btn =$('<div class="btn" id="Btnch"></div>')
 	};
 	
 	//下面是DEFAULTS物件
@@ -49,25 +49,48 @@
 
 	Module.prototype.init = function () {
 		this.$ele.append(this.$btn);
-		 this.$ele.addClass(this.nowSate(this.sate));
+		this.$ele.addClass(this.nowSate(this.sate));
+		//將banner的狀態輸入進去
 		
-		var a =this.sate;
-		console.log(a);
+		var x =this.sate;
+		
+		if(this.sate===0 || this.sate===1 ){
+			document.getElementById('Btnch').innerHTML = '收合'
+			//JS修改HTML中間文字
+		}else{
+			document.getElementById('Btnch').innerHTML = '展開'
+		}
+		console.log(x); //現在是opened:0
 		console.log('Finally!!');
 	};//首次執行的function!!!!全局function!!!等等要注意!!!!
 	//第一次執行的呼叫function
 
-	Module.prototype.goSate = function () {
-		this.sate++;
-		if(this.sate >this.satePoint.lenght-1){
-			this.sate =0;
-		}
-		return this.sate;
-	};
-	
+
+
 	Module.prototype.nowSate = function(sate){
 		return this.option.class[this.satePoint[sate]];
-	}
+	}//定義sate也就是狀態的數字(索引)所要添加的class
+
+
+
+	// Module.prototype.goSate = function () {
+	// 	this.sate++;
+	// 	if(this.sate >this.satePoint.lenght-1){
+	// 		this.sate =0;
+	// 	}
+	// 	return this.sate;
+	// };
+
+
+	Module.prototype.open = function () {
+
+	}//如何進行開的動作closed-opening-opened[2-3-0]
+
+
+	Module.prototype.close = function () {
+
+	}//如何進行關的動作opened-closing-closed[0-1-2]
+	
 
 	
 
