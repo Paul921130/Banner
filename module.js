@@ -84,7 +84,7 @@
 				opts = $.extend( {}, Module.DEFAULTS, ( typeof method === 'object' && method ), ( typeof options === 'object' && options ) );
 				module = new Module(this, opts);
 				$this.data( ModuleName, module );
-				module.init();
+				 module.init();
 			}
 		});
 	};
