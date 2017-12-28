@@ -23,14 +23,16 @@
 		</div>
 	</div>
 </div>
-<div class="banner transition opened">
+<div class="banner transition opened" id="bannerH">
 	<a class="wrap" href="#">
 		<img class="img" src="./imgs/1200x380.png" title="輸入廣告促銷說明文字" alt="輸入廣告促銷說明文字">
 	</a>
-	<div class="btn">收合</div>
 </div>
 <script>
-		$('.banner').banner({
+
+
+	$(function() {
+		$('body').banner({
 			// 設定一開始是否為開或合
 			openAtStart: true, // [boolean] true | false
 			// 設定啟動後是否要自動開或合，若設為false，就不要自勳開合；若為true是馬上自動開合；若為數字是幾毫秒之後開合
@@ -51,6 +53,7 @@
 			// 是否要有transition效果
 			transition: true,
 			// 當有transition時，要執行的callback function
+			// 記得要用setInterval
 			whenTransition: function() {
 				console.log('whenTransition');
 			}
@@ -62,12 +65,50 @@
 
 		$('.banner').banner('close');
 
+		});
+
 </script>
+
+
+<script>
+	var BtnHt = '<div class="btn" id="Btnch">'+'</div>';
+	$('.banner').append(BtnHt);
+</script>
+
+
+
+
+
 <script>
 	$(".btn").click(function() {
 		  $(".banner").toggleClass('closing');
- }
-);
+		  var bannerHeight = $(".banner").css("height");
+			console.log(bannerHeight);
+ 	});
 </script>
+
+<script>
+	$(".banner").bind(function(){
+		console.log($(this).css.height);
+	});
+</script>
+
+<script>
+	var openedText ='收合';
+	var closedText ='展開';
+
+	if ($(".banner").css.height===40) {
+   	document.getElementById("Btnch").innerHTML=closedText
+	} else { 
+   	document.getElementById("Btnch").innerHTML=openedText
+	}
+	// var intElemOffsetHeight = document.getElementById('bannerH').offsetHeight;//取得banner的高度
+	// console.log('Height:'+intElemOffsetHeight +'px');
+	// document.getElementById("Btnch").innerHTML=closedText;
+	//按鈕狀態文字
+
+</script>
+
+
 </body>
 </html>
