@@ -54,7 +54,7 @@
 		
 		var x =this.sate;
 		
-		if(this.sate===0 || this.sate===1 ){
+		if(this.sate === 0 || this.sate === 1 ){
 			document.getElementById('Btnch').innerHTML = '收合'
 			//JS修改HTML中間文字
 		}else{
