@@ -10,7 +10,7 @@
 		this.satePoint =['opened','opening','closing','closed'];
 					//opened:0,opening:1,closing:2,closed:3
 		this.sate =0;//opened
-		this.btn =$('<div class="btn" id="Btnch"></div>')
+		this.$btn =$('<div class="btn" id="Btnch">'+'收合'+'</div>')
 	};
 	
 	//下面是DEFAULTS物件
@@ -56,8 +56,10 @@
 	
 
 	Module.prototype.init = function () {
+		this.$ele.append(this.$btn);
 		console.log('Finally!!');
 	};//首次執行的function!!!!全局function!!!等等要注意!!!!
+	//第一次執行的呼叫function
 
 	
 
@@ -84,7 +86,7 @@
 				opts = $.extend( {}, Module.DEFAULTS, ( typeof method === 'object' && method ), ( typeof options === 'object' && options ) );
 				module = new Module(this, opts);
 				$this.data( ModuleName, module );
-				 module.init();
+				module.init();
 			}
 		});
 	};
