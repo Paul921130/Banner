@@ -45,18 +45,11 @@
 	// 	console.log(this.option.class[this.satePoint[sate]]);
 	// };
 
-	Module.prototype.func1 = function (option) {
-		var a = 1;
-		var b = 2;
-		var f = 4;
-		console.log('this is a prototype function1!!!');
-		console.log(option);//顯示對方的function內容
-		option(a, b, f );
-	};
 	
 
 	Module.prototype.init = function () {
 		this.$ele.append(this.$btn);
+
 		console.log('Finally!!');
 	};//首次執行的function!!!!全局function!!!等等要注意!!!!
 	//第一次執行的呼叫function
