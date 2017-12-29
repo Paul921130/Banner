@@ -53,29 +53,23 @@
 		var x = this.sate;
 		if ( this.option.openAtStart ===false ) {
 			this.sate = 2;
+			document.getElementById('Btnch').innerHTML = '展開';
+			//按鈕文字變化
 			 // this.addTransition();
 		}else{
 			this.sate = 0;
+			document.getElementById('Btnch').innerHTML = '收合';
+			//按鈕文字變化
 			// this.addTransition();
 		}
+		
+
 		if ( this.option.transition ===true ) {
 			this.addTransition();
 		}
 
 		this.$ele.addClass(this.nowSate(this.sate));
-		
-		if(x === 0 || x === 1 ){
-			document.getElementById('Btnch').innerHTML = '收合';
-			//JS修改HTML中間文字
-		}else{
-			document.getElementById('Btnch').innerHTML = '展開';
-		}
-		// if(this.option.class === 'closed'){
-		// 	document.getElementById('Btnch').innerHTML = '收合'
-		// 	//JS修改HTML中間文字
-		// }else{
-		// 	document.getElementById('Btnch').innerHTML = '展開'
-		// }
+
 		console.log(x); //現在是opened:0
 		console.log('Finally!!');
 	};//首次執行的function!!!!全局function!!!等等要注意!!!!
