@@ -101,12 +101,14 @@
 	};
 
 	Module.prototype.open = function () {
+		this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.downSate()) );
 		this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.downSate()) );	
 	}//如何進行開的動作closed-opening-opened[2-3-0]
 
 
 	Module.prototype.close = function () {
-		this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.goSate()) );		
+		this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.goSate()) );
+		this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.goSate()) );			
 	}//如何進行關的動作opened-closing-closed[0-1-2]
 	
 	Module.prototype.goSate = function () {
