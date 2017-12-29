@@ -48,31 +48,37 @@
 	
 
 		Module.prototype.init = function () {
-		this.$ele.append(this.$btn);
+		this.$ele.append(this.$btn);	
+		// 將banner的狀態輸入進去
+		var x = this.sate;
 
-		this.$ele.addClass(this.nowSate(this.sate));
-		//將banner的狀態輸入進去
 		if ( this.option.openAtStart ===false ) {
-			this.status = 2;
-			this.addTransition();
+			this.sate = 2;
+			 // this.addTransition();
 		}else{
-			this.status = 0;
+			this.sate = 0;
 			// this.addTransition();
 		}
+		if ( this.option.transition ===true ) {
+			this.addTransition();
+		}
+
+		this.$ele.addClass(this.nowSate(this.sate));
 		
-		// var x =this.sate;
-		
-		if(this.sate === 0 || this.sate === 1 ){
-			document.getElementById('Btnch').innerHTML = '收合'
+		if(x === 0 || x === 1 ){
+			document.getElementById('Btnch').innerHTML = '收合';
 			//JS修改HTML中間文字
 		}else{
-			document.getElementById('Btnch').innerHTML = '展開'
+			document.getElementById('Btnch').innerHTML = '展開';
 		}
-		// console.log(x); //現在是opened:0
+		// if(this.option.class === 'closed'){
+		// 	document.getElementById('Btnch').innerHTML = '收合'
+		// 	//JS修改HTML中間文字
+		// }else{
+		// 	document.getElementById('Btnch').innerHTML = '展開'
+		// }
+		console.log(x); //現在是opened:0
 		console.log('Finally!!');
-		
-		
-
 	};//首次執行的function!!!!全局function!!!等等要注意!!!!
 	//第一次執行的呼叫function
 
@@ -90,36 +96,46 @@
 
 	Module.prototype.toggle = function () {
 		// this.clearTimer();
-		this.addTransition();
-		if ( this.status === 2 ) {
+		// this.addTransition();
+		if ( this.sate === 2 ) {
 			this.open();
-		} else if ( this.status === 0 ) {
+		} else if ( this.sate === 0 ) {
 			this.close();
-		}
+		};
+		if(this.sate === 0 || this.sate === 1 ){
+			document.getElementById('Btnch').innerHTML = '收合';
+			//JS修改HTML中間文字
+		}else{
+			document.getElementById('Btnch').innerHTML = '展開';
+		};
 		// this.timer = setInterval(this.option.whenTransition, 25);
 	};
 
 	Module.prototype.open = function () {
+		this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.downSate()) );
 		this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.downSate()) );	
+		// return this.sate;
 	}//如何進行開的動作closed-opening-opened[2-3-0]
 
 
 	Module.prototype.close = function () {
-		this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.goSate()) );		
+		this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.goSate()) );
+		this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.goSate()) );
+		// return this.sate;			
 	}//如何進行關的動作opened-closing-closed[0-1-2]
 	
 	Module.prototype.goSate = function () {
 		this.sate++;
 		if(this.sate > this.satePoint.lenght-1){
-			this.sate = 2;
+			this.sate = 0;
 		}
 		return this.sate;
 	};
 	Module.prototype.downSate = function () {
 		this.sate--;
-		// if(this.sate < this.satePoint.lenght-4){
-		// 	this.sate = 1;
-		// }
+		if(this.sate < this.satePoint.lenght-1){
+			this.sate = 2;
+		}
 		return this.sate;
 	};
 	// Module.prototype.clearTimer = function() {
