@@ -57,6 +57,9 @@
 			this.sate = 0;
 			// this.addTransition();
 		}
+		if ( this.option.transition ===true ) {
+			this.addTransition();
+		}
 
 		this.$ele.addClass(this.nowSate(this.sate));
 		
