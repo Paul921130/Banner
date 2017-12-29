@@ -11,6 +11,7 @@
 					//opened:0,closing:1,closed:2,opening:3
 		this.sate = 0 ;//opened
 		this.$btn =$('<div class="btn" id="Btnch"></div>');
+		this.timer
 	};
 	
 	//下面是DEFAULTS物件
