@@ -66,15 +66,12 @@
 			// this.addTransition();
 		}
 		
-
 		if ( this.option.transition ===true ) {
 			this.addTransition();
 		}//判斷是否要有transition效果
 
 		this.$ele.addClass(this.nowSate(this.sate));
 		// 將banner的狀態輸入進去
-
-
 		console.log(x); //現在是opened:0
 		console.log('Finally!!');
 	};
@@ -121,7 +118,7 @@
 
 	Module.prototype.open = function () {
 		this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.downSate()) );
-		 this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.downSate()) );	
+  		this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.downSate()) );
 		// // return this.sate;
 	};//如何進行開的動作closed-opening-opened[2-3-0]
 
@@ -154,9 +151,9 @@
 
 	Module.prototype.transitionEnd = function () {
 		if ( this.status === 1 ) {
-			this.$ele.removeClass( this.nowSate(this.status) ).addClass( this.nowSate(this.goSate()) );
+			this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.goSate()) );
 		} else if ( this.status === 3 ) {
-			this.$ele.removeClass( this.nowSate(this.status) ).addClass( this.nowSate(this.goSate()) );
+			this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.goSate()) );
 		}
 		// this.clearTimer();
 	};
