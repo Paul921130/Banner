@@ -18,25 +18,22 @@
 	Module.DEFAULTS = {
 			openAtStart: true,
 			autoToggle: true,
-			
+				
 			button: {
-			closeText: '收合', 
-			openText: '展開', 
-			class: 'btn' 
+				closeText: '收合', 
+				openText: '展開', 
+				class: 'btn' 
 			},
-			
+				
 			class: {
-			opened: 'opened',
-			closing: 'closing', 
-			closed: 'closed', 
-			opening: 'opening' ,
+				opened: 'opened',
+				closing: 'closing', 
+				closed: 'closed', 
+				opening: 'opening' ,
 			},
-			
+				
 			transition: true,
 
-			// whenTransition: function() {
-			// 	console.log('whenTransition');
-			// }
 		};
 	
 
@@ -101,10 +98,8 @@
 		// this.addTransition();
 		if ( this.sate === 2) {	
 			this.open();
-			// this.open();
 		} else if ( this.sate === 0 ) {
 			 this.close();
-			// this.close();
 		}
 		if(this.sate === 0 || this.sate === 1 ){
 			document.getElementById('Btnch').innerHTML = '收合';
@@ -113,35 +108,37 @@
 			document.getElementById('Btnch').innerHTML = '展開';
 			//JS修改HTML中間文字
 		};
+		// this.transitionEnd()
+
 		// this.timer = setInterval(this.option.whenTransition, 25);
 	};
 
 	Module.prototype.open = function () {
 		this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.downSate()) );
   		this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.downSate()) );
-		// // return this.sate;
+		return this.sate;
 	};//如何進行開的動作closed-opening-opened[2-3-0]
 
 
 	Module.prototype.close = function () {
 		this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.goSate()) );
 		this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.goSate()) );
-		// return this.sate;			
+		return this.sate;			
 	};//如何進行關的動作opened-closing-closed[0-1-2]
 	
 	Module.prototype.goSate = function () {
-		this.sate++;
 		if(this.sate > this.satePoint.lenght-1){
 			this.sate = 0;
 		}
-		return this.sate;
+		this.sate ++;
+		return this.sate;//停止執行
 	};
 	Module.prototype.downSate = function () {
-		this.sate--;
 		if(this.sate < this.satePoint.lenght-1){
 			this.sate = 2;
 		}
-		return this.sate;
+		this.sate --;
+		return this.sate;//停止執行
 	};
 	// Module.prototype.clearTimer = function() {
 	// 	clearInterval(this.timer);
@@ -153,11 +150,10 @@
 		if ( this.status === 1 ) {
 			this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.goSate()) );
 		} else if ( this.status === 3 ) {
-			this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.goSate()) );
-		}
+				this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.goSate()) );
+			}
 		// this.clearTimer();
 	};
-
 	
 
 
@@ -184,6 +180,7 @@
 				$this.data( ModuleName, module );
 
 				module.init();
+				
 				module.$btn.on('click', function() {
 					module.toggle();
 				});
