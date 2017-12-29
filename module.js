@@ -20,16 +20,16 @@
 			autoToggle: true,
 			
 			button: {
-			closeText: '收合', // [string]
-			openText: '展開', // [string]
-			class: 'btn' // [string]
+			closeText: '收合', 
+			openText: '展開', 
+			class: 'btn' 
 			},
 			
 			class: {
-			opened: 'opened',// [string]
-			closing: 'closing', // [string]
-			closed: 'closed', // [string]
-			opening: 'opening' // [string]
+			opened: 'opened',
+			closing: 'closing', 
+			closed: 'closed', 
+			opening: 'opening' ,
 			},
 			
 			transition: true,
@@ -94,7 +94,7 @@
 		// obj [propName] 
 
 	Module.prototype.addTransition = function() {
-		if ( this.option.transition && !this.$ele.hasClass('transition') ) {
+		if (!this.$ele.hasClass('transition') ) {
 			this.$ele.addClass('transition');
 		}
 	};//判斷原ele是否有transition,如果沒有則加。
@@ -102,10 +102,12 @@
 	Module.prototype.toggle = function () {
 		// this.clearTimer();
 		// this.addTransition();
-		if ( this.sate === 2 ) {
+		if ( this.sate === 2) {	
 			this.open();
+			// this.open();
 		} else if ( this.sate === 0 ) {
-			this.close();
+			 this.close();
+			// this.close();
 		};
 		if(this.sate === 0 || this.sate === 1 ){
 			document.getElementById('Btnch').innerHTML = '收合';
@@ -119,16 +121,16 @@
 
 	Module.prototype.open = function () {
 		this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.downSate()) );
-		this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.downSate()) );	
-		// return this.sate;
-	}//如何進行開的動作closed-opening-opened[2-3-0]
+		 this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.downSate()) );	
+		// // return this.sate;
+	};//如何進行開的動作closed-opening-opened[2-3-0]
 
 
 	Module.prototype.close = function () {
 		this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.goSate()) );
 		this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.goSate()) );
 		// return this.sate;			
-	}//如何進行關的動作opened-closing-closed[0-1-2]
+	};//如何進行關的動作opened-closing-closed[0-1-2]
 	
 	Module.prototype.goSate = function () {
 		this.sate++;
@@ -183,6 +185,7 @@
 				opts = $.extend( {}, Module.DEFAULTS, ( typeof method === 'object' && method ), ( typeof options === 'object' && options ) );
 				module = new Module(this, opts);
 				$this.data( ModuleName, module );
+
 				module.init();
 				module.$btn.on('click', function() {
 					module.toggle();
