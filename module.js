@@ -47,13 +47,20 @@
 
 	
 
-	Module.prototype.init = function () {
+		Module.prototype.init = function () {
 		this.$ele.append(this.$btn);
 
 		this.$ele.addClass(this.nowSate(this.sate));
 		//將banner的狀態輸入進去
+		if ( this.option.openAtStart ===false ) {
+			this.status = 2;
+			this.addTransition();
+		}else{
+			this.status = 0;
+			// this.addTransition();
+		}
 		
-		var x =this.sate;
+		// var x =this.sate;
 		
 		if(this.sate === 0 || this.sate === 1 ){
 			document.getElementById('Btnch').innerHTML = '收合'
@@ -61,15 +68,11 @@
 		}else{
 			document.getElementById('Btnch').innerHTML = '展開'
 		}
-		console.log(x); //現在是opened:0
+		// console.log(x); //現在是opened:0
 		console.log('Finally!!');
 		
-		if ( this.option.openAtStart ) {
-			this.status = 0;
-			this.addTransition();
-		}else{
-			this.status = 2;
-		}
+		
+
 	};//首次執行的function!!!!全局function!!!等等要注意!!!!
 	//第一次執行的呼叫function
 
@@ -87,7 +90,7 @@
 
 	Module.prototype.toggle = function () {
 		// this.clearTimer();
-		// this.addTransition();
+		this.addTransition();
 		if ( this.status === 2 ) {
 			this.open();
 		} else if ( this.status === 0 ) {
@@ -114,9 +117,9 @@
 	};
 	Module.prototype.downSate = function () {
 		this.sate--;
-		if(this.sate < this.satePoint.lenght-4){
-			this.sate = 1;
-		}
+		// if(this.sate < this.satePoint.lenght-4){
+		// 	this.sate = 1;
+		// }
 		return this.sate;
 	};
 	// Module.prototype.clearTimer = function() {
@@ -159,8 +162,8 @@
 				module = new Module(this, opts);
 				$this.data( ModuleName, module );
 				module.init();
-				module.$btn.on('click', function(e) {
-					module.toggle(0);
+				module.$btn.on('click', function() {
+					module.toggle();
 				});
 				// module.$ele.on(module.transitionEndEvent, function(e, ignore) {
 				// 	if (ignore) {
