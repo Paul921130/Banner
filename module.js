@@ -52,7 +52,7 @@
 		// 將banner的狀態輸入進去
 		if ( this.option.openAtStart ===false ) {
 			this.sate = 2;
-			// this.addTransition();
+			 // this.addTransition();
 		}else{
 			this.sate = 0;
 			// this.addTransition();
@@ -91,10 +91,10 @@
 
 	Module.prototype.toggle = function () {
 		// this.clearTimer();
-		this.addTransition();
-		if ( this.status === 2 ) {
+		// this.addTransition();
+		if ( this.sate === 2 ) {
 			this.open();
-		} else if ( this.status === 0 ) {
+		} else if ( this.sate === 0 ) {
 			this.close();
 		}
 		// this.timer = setInterval(this.option.whenTransition, 25);
@@ -112,7 +112,7 @@
 	Module.prototype.goSate = function () {
 		this.sate++;
 		if(this.sate > this.satePoint.lenght-1){
-			this.sate = 2;
+			this.sate = 0;
 		}
 		return this.sate;
 	};
