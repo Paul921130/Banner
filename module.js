@@ -48,19 +48,17 @@
 	
 
 		Module.prototype.init = function () {
-		this.$ele.append(this.$btn);
-
-		this.$ele.addClass(this.nowSate(this.sate));
-		//將banner的狀態輸入進去
+		this.$ele.append(this.$btn);	
+		// 將banner的狀態輸入進去
 		if ( this.option.openAtStart ===false ) {
-			this.status = 2;
-			this.addTransition();
+			this.sate = 2;
+			// this.addTransition();
 		}else{
-			this.status = 0;
+			this.sate = 0;
 			// this.addTransition();
 		}
-		
-		// var x =this.sate;
+
+		this.$ele.addClass(this.nowSate(this.sate));
 		
 		if(this.sate === 0 || this.sate === 1 ){
 			document.getElementById('Btnch').innerHTML = '收合'
