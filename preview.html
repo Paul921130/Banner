@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="../core/core.css" rel="stylesheet">
 	<link href="css/stylesheets/css.css" rel="stylesheet">
-	<title>單獨模組樣式檢視</title>
+	<title>單獨模組樣式檢視(Banner)</title>
 	<!-- 使IE8可以用HTML5與看懂media queries，必需放在主要樣式下一行 -->
 	<!--[if lt IE 9]><script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script><script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
 	<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
@@ -23,7 +23,7 @@
 		</div>
 	</div>
 </div>
-<div class="banner" id="bannerH">
+<div class="banner">
 	<a class="wrap" href="#">
 		<img class="img" src="./imgs/1200x380.png" title="輸入廣告促銷說明文字" alt="輸入廣告促銷說明文字">
 	</a>
@@ -59,38 +59,23 @@
 			});
 		// $('.banner').banner('toggle');
 
-		$('.banner').banner('open');
+		 $('.banner').banner('open');
 
-		$('.banner').banner('close');
+		 $('.banner').banner('close');
 
-			// $(".btn").click(function() {
-			// 	$(".banner").toggleClass('closed');
-			// 	 var bannerHeight = $(".banner").css("height");
-			// 	console.log(bannerHeight);
-		 // 	});
+		// $(".btn").click(function() {
+		// 	$(".banner").toggleClass('closed');
+		// var bannerHeight = $(".banner").css("height");
+		// console.log(bannerHeight);
 		
-
+		//  $(".banner").bind(function(){
+		// 	console.log($(this).css.height);
+		// });
 </script>
 
 
 <script>
-	// var BtnHt = '<div class="btn" id="Btnch">'+'</div>';
-	// $('.banner').append(BtnHt);
+	
 </script>
-
-<script>
-	// $(".banner").bind(function(){
-	// 	console.log($(this).css.height);
-	// });
-</script>
-
-<script>
-	// $(function() {
-	// 	$('#test1').lbx_lnop
-
-
-	// });//將要呼叫的function塞在裡面
-</script>
-
 </body>
 </html>
