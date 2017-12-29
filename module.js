@@ -108,7 +108,7 @@
 		} else if ( this.sate === 0 ) {
 			 this.close();
 			// this.close();
-		};
+		}
 		if(this.sate === 0 || this.sate === 1 ){
 			document.getElementById('Btnch').innerHTML = '收合';
 			//JS修改HTML中間文字
