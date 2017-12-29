@@ -51,7 +51,6 @@
 		this.$ele.append(this.$btn);	
 		// 將banner的狀態輸入進去
 		var x = this.sate;
-
 		if ( this.option.openAtStart ===false ) {
 			this.sate = 2;
 			 // this.addTransition();
