@@ -101,13 +101,13 @@
 			this.open();
 		} else if ( this.sate === 0 ) {
 			this.close();
-		}
+		};
 		if(this.sate === 0 || this.sate === 1 ){
 			document.getElementById('Btnch').innerHTML = '收合';
 			//JS修改HTML中間文字
 		}else{
 			document.getElementById('Btnch').innerHTML = '展開';
-		}
+		};
 		// this.timer = setInterval(this.option.whenTransition, 25);
 	};
 
