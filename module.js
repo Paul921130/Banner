@@ -49,16 +49,18 @@
 	
 
 		Module.prototype.init = function () {
-		this.$ele.append(this.$btn);	
-		// 將banner的狀態輸入進去
+		
+		this.$ele.append(this.$btn);
+		//帶入btn的html
+
 		var x = this.sate;
 		if ( this.option.openAtStart ===false ) {
-			this.sate = 2;
+			this.sate = 2;//banner關閉時
 			document.getElementById('Btnch').innerHTML = '展開';
 			//按鈕文字變化
 			 // this.addTransition();
 		}else{
-			this.sate = 0;
+			this.sate = 0;//banner開啟時
 			document.getElementById('Btnch').innerHTML = '收合';
 			//按鈕文字變化
 			// this.addTransition();
@@ -67,26 +69,35 @@
 
 		if ( this.option.transition ===true ) {
 			this.addTransition();
-		}
+		}//判斷是否要有transition效果
 
 		this.$ele.addClass(this.nowSate(this.sate));
+		// 將banner的狀態輸入進去
+
 
 		console.log(x); //現在是opened:0
 		console.log('Finally!!');
-	};//首次執行的function!!!!全局function!!!等等要注意!!!!
+	};
+	//首次執行的function!!!
 	//第一次執行的呼叫function
 
 
 
 	Module.prototype.nowSate = function(sate){
 		return this.option.class[this.satePoint[sate]];
-	}//定義sate也就是狀態的數字(索引)所要添加的class
+	}//定義sate也就是狀態的數字(索引)所要添加的class,[sate]是索引值,
+		//[this.satePoint[sate]]是字串
+		// var obj ={
+		// 	x:'123';
+		// }
+		// var propName= 'x';
+		// obj [propName] 
 
 	Module.prototype.addTransition = function() {
 		if ( this.option.transition && !this.$ele.hasClass('transition') ) {
 			this.$ele.addClass('transition');
 		}
-	};
+	};//判斷原ele是否有transition,如果沒有則加。
 
 	Module.prototype.toggle = function () {
 		// this.clearTimer();
@@ -101,6 +112,7 @@
 			//JS修改HTML中間文字
 		}else{
 			document.getElementById('Btnch').innerHTML = '展開';
+			//JS修改HTML中間文字
 		};
 		// this.timer = setInterval(this.option.whenTransition, 25);
 	};
