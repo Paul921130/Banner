@@ -11,14 +11,28 @@
 					//opened:0,closing:1,closed:2,opening:3
 		this.sate = 0 ;//opened
 		this.$btn =$('<div class="btn" id="Btnch"></div>');
+		this.transitionEndEvent = function (transitions){
+			var el = document.createElement("fakeelement");
+			for (var t in transitions){
+				if (el.style[t] !== undefined){
+					return transitions[t];
+				}
+			}
+		}({
+			"transition": "transitionend",
+			"OTransition": "oTransitionEnd",
+			"MozTransition": "transitionend",
+			"WebkitTransition": "webkitTransitionEnd"
+		});
+		this.storage;
 		this.timer
 	};
 	
-	//下面是DEFAULTS物件
+	//下面是DEFAULTS物件 
 	Module.DEFAULTS = {
 			openAtStart: true,
-			autoToggle: true,
-				
+			autoToggle: false,
+			countTime: 3000,
 			button: {
 				closeText: '收合', 
 				openText: '展開', 
@@ -33,6 +47,10 @@
 			},
 				
 			transition: true,
+
+			whenTransition: function() {
+			console.log('whenTransition');
+		}
 
 		};
 	
@@ -71,6 +89,12 @@
 		// 將banner的狀態輸入進去
 		console.log(x); //現在是opened:0
 		console.log('Finally!!');
+
+		if ( this.option.autoToggle === 'open' && this.sate === 2 ) {
+			this.timer = setTimeout( this.toggle.bind(this), this.option.countTime );
+		} else if ( this.option.autoToggle === 'close' &&  this.sate === 0 ) {
+			this.timer = setTimeout( this.toggle.bind(this), this.option.countTime );
+		}
 	};
 	//首次執行的function!!!
 	//第一次執行的呼叫function
@@ -94,8 +118,8 @@
 	};//判斷原ele是否有transition,如果沒有則加。
 
 	Module.prototype.toggle = function () {
-		// this.clearTimer();
-		// this.addTransition();
+		 this.clearTimer();
+		 this.addTransition();
 		if ( this.sate === 2) {	
 			this.open();
 		} else if ( this.sate === 0 ) {
@@ -108,9 +132,7 @@
 			document.getElementById('Btnch').innerHTML = '展開';
 			//JS修改HTML中間文字
 		};
-		// this.transitionEnd()
-
-		// this.timer = setInterval(this.option.whenTransition, 25);
+		this.timer = setInterval(this.option.whenTransition, 25);
 	};
 
 	Module.prototype.open = function () {
@@ -152,10 +174,13 @@
 		} else if ( this.status === 3 ) {
 				this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.goSate()) );
 			}
-		// this.clearTimer();
+		 this.clearTimer();
 	};
 	
-
+	Module.prototype.clearTimer = function() {
+		clearInterval(this.timer);
+		clearTimeout(this.timer);
+	};
 
 
 
@@ -184,13 +209,16 @@
 				module.$btn.on('click', function() {
 					module.toggle();
 				});
-				// module.$ele.on(module.transitionEndEvent, function(e, ignore) {
-				// 	if (ignore) {
-				// 		console.log('trigger transitionend and dont run anything');
-				// 	} else {
-				// 		module.transitionEnd();
-				// 	}
-			}
+
+				module.$ele.on(module.transitionEndEvent, function(e, ignore) {
+					if (ignore) {
+						console.log('trigger transitionend and dont run anything');
+					} else {
+						module.transitionEnd();
+					}
+			});
+		}
+		
 		});
 	};
 
