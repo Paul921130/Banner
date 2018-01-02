@@ -11,17 +11,22 @@
 					//opened:0,closing:1,closed:2,opening:3
 		this.sate = 0 ;//opened
 		this.$btn =$('<div class="btn" id="Btnch"></div>');
+		
+		//下面看不懂
 		this.transitionEndEvent = function (transitions){
-			var el = document.createElement("fakeelement");
+			var a = document.createElement("fakeelement");
 			for (var t in transitions){
-				if (el.style[t] !== undefined){
+				if (a.style[t] !== undefined){
 					return transitions[t];
 				}
 			}
 		}({
 			"transition": "transitionend",
 		});
-		//這裡看不太懂
+		this.whenTransition= function() {
+			console.log('whenTransition');
+		}
+		//上面看不太懂
 
 		this.timer
 	};
@@ -45,17 +50,15 @@
 			},
 				
 			transition: true,
-
-			whenTransition: function() {
-			console.log('whenTransition');
-		}
-
+				whenTransition:function() {
+				console.log('whenTransition');
+			}
 		};
 	
 
 	
 
-		Module.prototype.init = function () {
+		Module.prototype.banner = function () {
 		
 		this.$ele.append(this.$btn);
 		//帶入btn的html
@@ -103,7 +106,7 @@
 		if ( ! this.$ele.hasClass('transition') ) {
 			this.$ele.addClass('transition');
 		};
-	};//判斷原ele是否有transition,如果沒有則加。
+	};//判斷ele是否有transition,如果沒有則加。
 
 	Module.prototype.toggle = function () {
 		if ( this.option.transition ===true ) {
@@ -197,12 +200,12 @@
 				module = new Module(this, opts);
 				$this.data( ModuleName, module );
 
-				module.init();
-				
+				module.banner();
+				//執行的function
 				module.$btn.on('click', function() {
 					module.toggle();
 				});
-
+				//事件
 				module.$ele.on(module.transitionEndEvent, function(e, ignore) {
 					if (ignore) {
 						console.log('trigger transitionend and dont run anything');
