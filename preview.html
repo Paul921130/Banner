@@ -35,13 +35,16 @@
 			// 設定一開始是否為開或合
 			openAtStart: true, // [boolean] true | false
 			// 設定啟動後是否要自動開或合，若設為false，就不要自勳開合；若為true是馬上自動開合；若為數字是幾毫秒之後開合
-			autoToggle: 'close', // [boolean|number] true | false | 3000
-			countTime: 3000,
-			// 設定收合展開按鈕
+			autoToggle: 'close', 
+			//openAtStart: true+autoToggle: 'close'=自動收合
+			// openAtStart: false+autoToggle: 'open'=自動展開
+			countTime: 1000,
+			//設定自動開關的時間
 			button: {
 				closeText: '收合', // [string]
 				openText: '展開', // [string]
 				class: 'btn' // [string]
+				// 設定按鈕
 			},
 			// 設定模組在各狀態時的class
 			class: {

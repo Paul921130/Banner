@@ -85,10 +85,10 @@
 			this.timer = setTimeout( this.toggle.bind(this), this.option.countTime );
 		} else if ( this.option.autoToggle === 'close' &&  this.sate === 0 ) {
 			this.timer = setTimeout( this.toggle.bind(this), this.option.countTime );
-		}
+		}//自動收合設定
 	};
-	//首次執行的function!!!
-	//第一次執行的呼叫function
+
+
 
 
 
@@ -141,21 +141,8 @@
 	//測試中
 
 
-	// Module.prototype.open = function () {
-	// 	this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.downSate()) );
- //  		this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.downSate()) );
-	// 	return this.sate;
-	// };//如何進行開的動作closed-opening-opened[2-3-0]
-
-
-	// Module.prototype.close = function () {
-	// 	this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.goSate()) );
-	// 	this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.goSate()) );
-	// 	return this.sate;			
-	// };//如何進行關的動作opened-closing-closed[0-1-2]
 	
-
-	//測試中nextStatus
+	
 	Module.prototype.goSate = function () {
 		this.sate++;
 		if ( this.sate > this.satePoint.length-1 ) {
@@ -164,22 +151,33 @@
 		return this.sate;
 	};
 
+	// Module.prototype.open = function () {
+	// 	this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.goSate()) );
+	// 	return this.sate;
+	// };//如何進行開的動作closed-opening-opened[2-3-0]
+
+
+	// Module.prototype.close = function () {
+	// 	this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.goSate()) );
+	// 	return this.sate;			
+	// };//如何進行關的動作opened-closing-closed[0-1-2]
+
 	Module.prototype.open = function () {
 		this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.goSate()) );
 		this.$btn.text(this.option.button.closeText);
-	// this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.nextStatus()) );
+		//在執行動作(open)時按鈕的顯示文字
 	};
 
 	Module.prototype.close = function () {
 		this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.goSate()) );
 		this.$btn.text(this.option.button.openText);
-	// this.$ele.removeClass( this.nowSate(this.sate) ).addClass( this.nowSate(this.nextStatus()) );
+		//在執行動作(close)時按鈕的顯示文字
 	};
 	
 	Module.prototype.clearTimer = function() {
 		clearInterval(this.timer);
 		clearTimeout(this.timer);
-	};
+	};//用來清空setInterval或setTimeout的function。
 
 
 	$.fn[ModuleName] = function ( method, options ) {
@@ -212,6 +210,7 @@
 					} else {
 						module.transitionEnd();
 					}
+					//on transition事件
 			});
 		}
 		
