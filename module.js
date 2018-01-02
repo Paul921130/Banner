@@ -108,23 +108,23 @@
 	Module.prototype.toggle = function () {
 		if ( this.option.transition ===true ) {
 			this.addTransition();
+			if ( this.sate === 2 ) {
+				this.open();
+			} else if ( this.sate === 0 ) {	
+				this.close();
+			};	
 			this.timer = setInterval(this.option.whenTransition, 25);
+		}else{
+			if ( this.sate === 2 ) {
+				this.open();
+				this.open();
+			} else if ( this.sate === 0 ) {	
+				this.close();
+				this.close();
+			};
 		}
-		// this.addTransition();
-		// this.clearTimer();
-		if ( this.sate === 2 ) {
-			this.open();
-		} else if ( this.sate === 0 ) {	
-			this.close();
-		};	
-		// if(this.sate === 0 || this.sate === 1 ){
-		// 	document.getElementById('Btnch').innerHTML = '收合';
-		// 	//JS修改HTML中間文字
-		// }else{
-		// 	document.getElementById('Btnch').innerHTML = '展開';
-		// 	//JS修改HTML中間文字
-		// };	
 	};
+	//先判定是否要有transition效果,針對兩種效果做不一樣的toggle
 
 	Module.prototype.transitionEnd = function () {
 		if ( this.sate === 1 ) {
